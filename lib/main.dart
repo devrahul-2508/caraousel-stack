@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:stack_carousel/widgets/item_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -47,18 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 300,
               child: CarouselSlider(
                   items: [
-                    ClipRRect(
-                        child: Image(
-                      image: NetworkImage(
-                          "https://imgd.aeplcdn.com/370x208/n/cw/ec/131879/bmw-s1000rr-right-front-three-quarter0-2.jpeg?isig=0&q=75"),
-                      fit: BoxFit.cover,
-                    )),
-                    ClipRRect(
-                        child: Image(
-                      image: NetworkImage(
-                          "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2021%2F06%2Fbrabus-900-rocket-edition-mercedes-amg-g63-g-wagon-tuned-custom-900hp-power-speed-0.jpg?w=960&cbr=1&q=90&fit=max"),
-                      fit: BoxFit.cover,
-                    ))
+                    MyWidget(image:"https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2021%2F06%2Fbrabus-900-rocket-edition-mercedes-amg-g63-g-wagon-tuned-custom-900hp-power-speed-0.jpg?w=960&cbr=1&q=90&fit=max" ,title: "Gwagon",),
+                    MyWidget(image: "https://www.bmwmotorcycles.com/content/dam/bmwmotorradnsc/common/multiimages/images/models/sport/s1000rr/2022/nsc-s1000rr-P0N3H-multiimage-2560x1440.jpg.asset.1661501760414.jpg", title: "S1000RR")
                   ],
                   options: CarouselOptions(
                       height: 400,
@@ -74,32 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       enlargeFactor: 0.3,
                       scrollDirection: Axis.horizontal)),
             ),
-            CarouselSlider(
-                items: [
-                  Text(
-                    "s1000rr",
-                    style: TextStyle(color: Colors.white, fontSize: 50),
-                  ),
-                  Text(
-                    "Gwagon",
-                    style: TextStyle(color: Colors.white, fontSize: 50),
-                  )
-                ],
-                options: CarouselOptions(
-                    height: 100,
-                    aspectRatio: 16 / 9,
-                    viewportFraction: 1,
-                    initialPage: 0,
-                    enableInfiniteScroll: true,
-                    reverse: false,
-                    autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 3),
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    enlargeFactor: 0.3,
-                    scrollDirection: Axis.horizontal)),
-          ],
-        ),
+          ] 
+        )
       ),
     );
   }
